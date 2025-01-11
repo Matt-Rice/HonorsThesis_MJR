@@ -29,7 +29,7 @@ To train:
 python main.py
 ```
 Optional parameters:
---grid_size = 10 -> the size of the grid 
---total_timesteps = 100000 -> the total number of timesteps that will be trained for.
---save_freq = 10 -> How often a checkpoint of the model wil be saved along with a graph rendering.
---train = None -> Set it to the directory of the model checkpoint that you want to continue training with
+- --grid_size = 10 -> the size of the grid 
+- --total_timesteps = 100000 -> the total number of timesteps that will be trained for.
+- --save_freq = 10 -> How often a checkpoint of the model wil be saved along with a graph rendering.
+- --train = None -> Set it to the directory of the model checkpoint that you want to continue training with
