@@ -1,0 +1,20 @@
+Episode 1: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.348816
+Truncated on step 2048
+Episode 2: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.335552
+Truncated on step 2048
+Episode 3: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.345510
+Truncated on step 2048
+Episode 4: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.348724
+Truncated on step 2048
+Episode 5: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.333608
+Truncated on step 2048
+Episode 6: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.340431
+Truncated on step 2048
+Episode 7: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.323614
+Truncated on step 2048
+Episode 8: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.342564
+Truncated on step 2048
+Episode 9: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.355920
+Truncated on step 2048
+Episode 10: Reward: -5000.790699592121, Steps: 2048, Trajectory Length: 6.0416677594184875, Total Time: 0.376658
+Average Reward: -5000.79, Average Steps: 2048.00, Average Trajectory Length: 6.04, Average Planning Time: 0.345140
