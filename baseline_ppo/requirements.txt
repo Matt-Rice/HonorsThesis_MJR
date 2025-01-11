@@ -1,6 +1,0 @@
-tensorflow
-gymnasium
-matplotlib
-numpy
-imageio
-pandas

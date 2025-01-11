@@ -1,11 +1,9 @@
 import os
-import numpy as np
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.monitor import Monitor
 from grid_env import GridEnvironment
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
-import imageio
 import argparse
 
 
