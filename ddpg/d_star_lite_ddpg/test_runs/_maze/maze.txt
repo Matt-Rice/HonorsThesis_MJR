@@ -1,0 +1,40 @@
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 1: Reward: -7185.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.799981
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 2: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.827654
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 3: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.878287
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 4: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.798339
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 5: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.786407
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 6: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.510343
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 7: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.654528
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 8: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.631271
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 9: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.861395
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Truncated on step 2048
+Episode 10: Reward: -7186.806487783314, Steps: 2048, Trajectory Length: 3.999999931542916, Total Time: 1.778504
+Average Reward: -7186.71, Average Steps: 2048.00, Average Trajectory Length: 4.00, Average Planning Time: 1.752671, D* Lite Path Length: {16}

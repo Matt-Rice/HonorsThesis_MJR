@@ -1,0 +1,35 @@
+Episode 1: Reward: 103.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.007026
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 2: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.006001
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 3: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.008245
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 4: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.007538
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 5: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.005000
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 6: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.006500
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 7: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.005022
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 8: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.005021
+FINISH OBSTACLE
+FINISH OBSTACLE
+s:(0,0), g:(9,9), path: True
+Episode terminated on step 16
+Episode 10: Reward: 102.75365401796041, Steps: 16, Trajectory Length: 15.829242946734873, Total Time: 0.006002
+Average Reward: 102.85, Average Steps: 16.00, Average Trajectory Length: 15.83, Average Planning Time: 0.006135, D* Lite Path Length: {16}

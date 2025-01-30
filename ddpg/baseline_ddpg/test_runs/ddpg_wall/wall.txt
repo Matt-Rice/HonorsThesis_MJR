@@ -1,0 +1,171 @@
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 1: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.008368
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 2: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.009913
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 3: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.008603
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 4: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.008517
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 5: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.007707
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 6: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.007368
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 7: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.007087
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 8: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.011025
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 9: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.009977
+Progress Reward: 0.09455232214836329 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09364449250900223 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09502644310550715 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07456298762549345 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0945215916510966 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.09409161057568252 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0799588949102314 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.0801213755662121 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08684146644382632 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.08349804715141781 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07446881666735172 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071062326431274 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071067690849304 Backward Penalty: 0, Revisit Penalty: 0
+Progress Reward: 0.07071068286895751 Backward Penalty: 0, Revisit Penalty: 0
+Episode terminated on step 15
+Episode 10: Reward: 92.53123881995803, Steps: 15, Trajectory Length: 13.720873907222506, Total Time: 0.007261
+Average Reward: 92.53, Average Steps: 15.00, Average Trajectory Length: 13.72, Average Planning Time: 0.008583
