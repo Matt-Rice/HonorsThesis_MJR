@@ -12,25 +12,29 @@ def reward_shaping_function(
     last_nearest_index=None, grid_size=60
 ):
     """
-    Reward shaping function with directional progress incentive, path following reward,
-    penalties for backtracking, and revisiting penalties.
+    Reward shaping function with stronger path-following incentives,
+    penalties for deviations, backtracking, and revisiting.
     """
     path = list(zip(pathx, pathy))
     current_distance_to_goal = np.linalg.norm(np.array(goal_position) - np.array(agent_position))
     progress_reward = (previous_distance_to_goal - current_distance_to_goal) / grid_size  # Normalize
 
-    # Minimum distance to path penalty
+    # Distance to path penalty (Encourage staying close to D* Lite path)
     min_distance_to_path = min(
         np.linalg.norm(np.array(agent_position) - np.array(path_point))
         for path_point in path
     )
-    path_penalty_weight = 0.5  # Reduce importance of path penalty
+    path_penalty_weight = 3  # Increase importance of path penalty
     path_penalty = path_penalty_weight * (-min_distance_to_path / grid_size)  # Normalize
 
-    # Obstacle penalty
-    obstacle_penalty = -1 if obstacle_hit else 0
+    # Gaussian reward for proximity to path (stronger reinforcement)
+    proximity_reward_weight = 2.0  # Higher weight for staying close
+    proximity_reward = proximity_reward_weight * np.exp(-min_distance_to_path ** 2 / (2 * (grid_size / 10) ** 2))
 
-    # Penalize backward motion (using dot product with path direction)
+    # Obstacle penalty
+    obstacle_penalty = -5 if obstacle_hit else 0  # Stronger obstacle penalty
+
+    # Penalize backward motion
     backward_penalty = 0
     if previous_position is not None:
         movement_vector = np.array(agent_position) - np.array(previous_position)
@@ -38,57 +42,58 @@ def reward_shaping_function(
         goal_direction_unit_vector = goal_direction_vector / (np.linalg.norm(goal_direction_vector) + 1e-6)
         forward_motion = np.dot(movement_vector, goal_direction_unit_vector)  # Positive if moving toward goal
         if forward_motion < 0:
-            backward_penalty = -1
+            backward_penalty = -2  # Stronger penalty for moving backward
 
     # Reward for following the D* Lite path sequentially
     nearest_index = np.argmin([np.linalg.norm(np.array(agent_position) - np.array(p)) for p in path])
+    path_following_weight = 3.0  # Increase path-following reward importance
     if nearest_index + 1 < len(path):
         next_path_point = np.array(path[nearest_index + 1])
         movement_vector = np.array(agent_position) - np.array(previous_position)
         path_progress_vector = next_path_point - np.array(path[nearest_index])
         path_progress_unit_vector = path_progress_vector / (np.linalg.norm(path_progress_vector) + 1e-6)
-        path_follow_reward = np.dot(movement_vector, path_progress_unit_vector)  # Reward for moving in the path's direction
+        path_follow_reward = path_following_weight * np.dot(movement_vector, path_progress_unit_vector)
     else:
         path_follow_reward = 0
 
     # Penalize backtracking on the path
     backtracking_penalty = 0
     if last_nearest_index is not None and nearest_index <= last_nearest_index:
-        backtracking_penalty = -1
+        backtracking_penalty = -3  # Increased penalty for backtracking
 
     # Penalize revisiting positions
     revisit_penalty = 0
     if tuple(agent_position) in visited_positions:
-        revisit_penalty = -0.5
+        revisit_penalty = -1  # Increase penalty for visiting the same spot
     visited_positions.add(tuple(agent_position))
 
-    # Reward shaping for closer proximity to goal
-    shaping_term = -current_distance_to_goal / grid_size  # Normalize
+    # Reward for reducing distance to goal
+    shaping_term_weight = 0.5  # Reduce weight since path-following is emphasized
+    shaping_term = shaping_term_weight * (-current_distance_to_goal / grid_size)
 
     # Final reward
     reward = (
-        progress_reward + path_penalty + obstacle_penalty + backward_penalty +
-        path_follow_reward + backtracking_penalty + revisit_penalty + shaping_term
+        progress_reward + path_penalty + proximity_reward + obstacle_penalty +
+        backward_penalty + path_follow_reward + backtracking_penalty +
+        revisit_penalty + shaping_term
     )
 
-    # print(f"Progress Reward: {progress_reward}, Path Follow Reward: {path_follow_reward}, "
-    #   f"Backward Penalty: {backward_penalty}, Revisit Penalty: {revisit_penalty}")
-
+    # Print debugging information
+    # print(f"Progress: {progress_reward}, Path Reward: {path_follow_reward}, "
+    #       f"Proximity Reward: {proximity_reward}, Path Penalty: {path_penalty}, "
+    #       f"Backward Penalty: {backward_penalty}, Revisit Penalty: {revisit_penalty}")
 
     return reward, current_distance_to_goal, nearest_index
 
-
-
-
-
 class GridEnvironment(gym.Env):
-    def __init__(self, sx=0, sy=0, gx=59, gy=59, ox=None, oy=None, grid_size=60, max_radius=1, num_obs=0.0):
+    def __init__(self, sx=0, sy=0, gx=59, gy=59, ox=None, oy=None, grid_size=60, max_radius=1, num_obs=0.0, training_mode=False):
         super(GridEnvironment, self).__init__()
 
         self.grid_size = grid_size
         self.max_radius = max_radius
         
         self.num_obs = num_obs
+        self.training_mode = training_mode
 
         max_grid_size = 60
         self.observation_space = spaces.Box(
@@ -101,6 +106,32 @@ class GridEnvironment(gym.Env):
         self.gx, self.gy = gx, gy
         self.start_position = (sx, sy)
         self.goal_position = (gx, gy)
+
+        # Set up potential obstacle scenarios for training mode
+        self.obstacle_scenarios = {
+            "no_obstacles": {"ox": [], "oy": []},
+        
+            "wall": {
+                "ox": [5 for _ in range(grid_size - 2)],  # Fixed x-coordinate at 5, spanning y-range
+                "oy": [y for y in range(grid_size - 2)]  # Y-coordinates from 0 to 57
+            },
+
+            "small_maze": {
+                "ox": [7, 7, 7, 4, 5, 6, 3, 2, 1, 0],
+                "oy": [2, 3, 4, 4, 4, 4, 4, 4, 4, 4]
+            },
+
+            "passage": {
+                "ox": [7, 7, 7, 7, 4, 5, 6, 3, 2, 1, 0],
+                "oy": [0, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4]
+            },
+
+            "space": {
+                "ox": [7, 7, 7, 7, 7, 4, 6, 3, 2, 1, 0],
+                "oy": [0, 1, 2, 3, 4, 4, 4, 4, 4, 4, 4]
+            }
+
+        }
 
         # Define obstacle lists
         self.ox = ox if ox is not None else []
@@ -223,7 +254,7 @@ class GridEnvironment(gym.Env):
             reward += 100
             print(f"Episode terminated on step {self.step_count}")
 
-        if self.step_count >= 2048:
+        if self.step_count >= 1024:
             truncated = True
             print(f"Truncated on step {self.step_count}")
 
@@ -273,6 +304,13 @@ class GridEnvironment(gym.Env):
 
                 self.ox.append(ox)
                 self.oy.append(oy)
+                
+        # Chooses between several environments
+        elif self.training_mode:
+            scenario = random.choice(list(self.obstacle_scenarios.keys()))
+            scenario_data = self.obstacle_scenarios[scenario]
+            self.ox, self.oy = scenario_data["ox"], scenario_data["oy"]
+            print(f"Using training mode: scenario '{scenario}' with {len(self.ox)} obstacles")
 
         self.obstacles = list(zip(self.ox, self.oy))
         print("FINISH OBSTACLE")

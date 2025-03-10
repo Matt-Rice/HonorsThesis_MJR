@@ -1,4 +1,6 @@
 import os
+import perun 
+import time
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.noise import NormalActionNoise
@@ -89,11 +91,13 @@ class SaveGifAndLogCallback(BaseCallback):
         if hasattr(self.model, "action_noise"):
             action_noise = np.mean(self.model.action_noise())
             self.logger.record("custom/action_noise", action_noise)
-
+    
+@perun.perun()
 def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Train and evaluate a PPO model on a GridEnvironment.")
     parser.add_argument("--grid_size", type=int, default=10, help="Size of the grid environment.")
+    parser.add_argument("--environment", type=str, default=None)
     parser.add_argument("--total_timesteps", type=int, default=100000, help="Total timesteps for training.")
     parser.add_argument("--save_freq", type=int, default=10000, help="Frequency to save models and graphs.")
     parser.add_argument("--train", type=str, default=None, help="Existing model to be trained.")
@@ -192,24 +196,167 @@ def main():
     )
 
     callbacks = [wall_callback, maze_callback, pass_callback, space_callback]
-    if not args.train:
-        for env, callback in zip(train_envs, callbacks):
-            
-            model = DDPG(
-                "MlpPolicy",
-                env,
-                action_noise=action_noise,
-                learning_rate=3e-3,
-                buffer_size=100000,
-                tau = 1e-3,
-                batch_size=256,
-                verbose=2,
-                tensorboard_log=os.path.join(log_dir, "tensorboard"),
-            )
+    
+    match args.environment:
+        case None:
+             
+            for env, callback in zip(train_envs, callbacks):
+                if not args.train: 
+                    model = DDPG(
+                        "MlpPolicy",
+                        env,
+                        action_noise=action_noise,
+                        learning_rate=3e-3,
+                        buffer_size=100000,
+                        tau = 1e-3,
+                        batch_size=256,
+                        verbose=2,
+                        tensorboard_log=os.path.join(log_dir, "tensorboard"),
+                    )
+                else:
+                    model = DDPG.load(args.train, env=env)
+
+
+            # train model
+            start_time = time.time()
             model.learn(total_timesteps=args.total_timesteps, callback=callback)
-    else:
-        model = DDPG.load(args.train, env=wall_train_env)
-        model.learn(total_timesteps=args.total_timesteps, callback=callback)
+            end_time = time.time()
+
+            # Compute efficiency
+            total_time = end_time - start_time
+            energy_used = perun.get_total_energy()  # Total energy in Joules
+            print(f"Total Energy Used: {energy_used:.2f} J")
+            print(f"Energy per Episode: {energy_used / args.total_timesteps:.2f} J/episode")
+            print(f"Execution Time: {total_time:.2f} sec")
+    
+
+        case "wall":
+            env = wall_train_env
+            callback = wall_callback
+            if not args.train: 
+                    model = DDPG(
+                        "MlpPolicy",
+                        env,
+                        action_noise=action_noise,
+                        learning_rate=3e-3,
+                        buffer_size=100000,
+                        tau = 1e-3,
+                        batch_size=256,
+                        verbose=2,
+                        tensorboard_log=os.path.join(log_dir, "tensorboard"),
+                    )
+            else:
+                model = DDPG.load(args.train, env=env)
+
+
+            # train model
+            start_time = time.time()
+            model.learn(total_timesteps=args.total_timesteps, callback=callback)
+            end_time = time.time()
+
+            # Compute efficiency
+            total_time = end_time - start_time
+            energy_used = perun.get_total_energy()  # Total energy in Joules
+            print(f"Total Energy Used: {energy_used:.2f} J")
+            print(f"Energy per Episode: {energy_used / args.total_timesteps:.2f} J/episode")
+            print(f"Execution Time: {total_time:.2f} sec")
+    
+        
+        case "maze":
+            env = maze_train_env
+            callback = maze_callback
+            if not args.train: 
+                    model = DDPG(
+                        "MlpPolicy",
+                        env,
+                        action_noise=action_noise,
+                        learning_rate=3e-3,
+                        buffer_size=100000,
+                        tau = 1e-3,
+                        batch_size=256,
+                        verbose=2,
+                        tensorboard_log=os.path.join(log_dir, "tensorboard"),
+                    )
+            else:
+                model = DDPG.load(args.train, env=env)
+
+            
+
+            # train model
+            start_time = time.time()
+            model.learn(total_timesteps=args.total_timesteps, callback=callback)
+            end_time = time.time()
+
+            # Compute efficiency
+            total_time = end_time - start_time
+            energy_used = perun.get_total_energy()  # Total energy in Joules
+            print(f"Total Energy Used: {energy_used:.2f} J")
+            print(f"Energy per Episode: {energy_used / args.total_timesteps:.2f} J/episode")
+            print(f"Execution Time: {total_time:.2f} sec")
+    
+        case "passage":
+            env = pass_train_env
+            callback = pass_callback
+            if not args.train: 
+                    model = DDPG(
+                        "MlpPolicy",
+                        env,
+                        action_noise=action_noise,
+                        learning_rate=3e-3,
+                        buffer_size=100000,
+                        tau = 1e-3,
+                        batch_size=256,
+                        verbose=2,
+                        tensorboard_log=os.path.join(log_dir, "tensorboard"),
+                    )
+            else:
+                model = DDPG.load(args.train, env=wall_train_env)
+
+                         
+
+            # train model
+            start_time = time.time()
+            model.learn(total_timesteps=args.total_timesteps, callback=callback)
+            end_time = time.time()
+
+            # Compute efficiency
+            total_time = end_time - start_time
+            energy_used = perun.get_total_energy()  # Total energy in Joules
+            print(f"Total Energy Used: {energy_used:.2f} J")
+            print(f"Energy per Episode: {energy_used / args.total_timesteps:.2f} J/episode")
+            print(f"Execution Time: {total_time:.2f} sec")
+    
+        case "space":
+            env = space_train_env
+            callback = space_callback
+            if not args.train: 
+                    model = DDPG(
+                        "MlpPolicy",
+                        env,
+                        action_noise=action_noise,
+                        learning_rate=3e-3,
+                        buffer_size=100000,
+                        tau = 1e-3,
+                        batch_size=256,
+                        verbose=2,
+                        tensorboard_log=os.path.join(log_dir, "tensorboard"),
+                    )
+            else:
+                model = DDPG.load(args.train, env=env)
+
+             
+
+            # train model
+            start_time = time.time()
+            model.learn(total_timesteps=args.total_timesteps, callback=callback)
+            end_time = time.time()
+
+            # Compute efficiency
+            total_time = end_time - start_time
+            energy_used = perun.get_total_energy()  # Total energy in Joules
+            print(f"Total Energy Used: {energy_used:.2f} J")
+            print(f"Energy per Episode: {energy_used / args.total_timesteps:.2f} J/episode")
+            print(f"Execution Time: {total_time:.2f} sec")
     
 
 if __name__ == "__main__":

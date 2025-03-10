@@ -1,0 +1,11 @@
+Episode 1: Reward: 48.13476963202584, Steps: 30, Trajectory Length: 14.08870940419145, Total Time: 0.012288
+Episode 2: Reward: 39.518234495618245, Steps: 37, Trajectory Length: 13.907707358852278, Total Time: 0.013287
+Episode 3: Reward: 125.18695316684139, Steps: 11, Trajectory Length: 9.707046778323422, Total Time: 0.003999
+Episode 4: Reward: -5.988293303348627, Steps: 38, Trajectory Length: 15.485468317713252, Total Time: 0.016345
+Episode 5: Reward: 105.25372992506301, Steps: 3, Trajectory Length: 2.835887070828467, Total Time: 0.002111
+Average Reward: 62.42, Average Steps: 23.80, Average Trajectory Length: 11.20, Average Planning Time: 0.009606Episode 1: Reward: 79.4894728119959, Steps: 38, Trajectory Length: 5.693048570766477, Total Time: 0.012248
+Episode 2: Reward: 128.75383035413134, Steps: 11, Trajectory Length: 10.096637376426564, Total Time: 0.004006
+Episode 3: Reward: 114.53442254215315, Steps: 12, Trajectory Length: 9.161685251807912, Total Time: 0.004349
+Episode 4: Reward: 107.7388465871946, Steps: 5, Trajectory Length: 4.321335253201422, Total Time: 0.001998
+Episode 5: Reward: 98.6993153667496, Steps: 1, Trajectory Length: 0.5455793738365173, Total Time: 0.001048
+Average Reward: 105.84, Average Steps: 13.40, Average Trajectory Length: 5.96, Average Planning Time: 0.004730

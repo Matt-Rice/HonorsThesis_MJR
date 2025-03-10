@@ -51,11 +51,12 @@ def reward_shaping_function(
     return reward, current_distance_to_goal
 
 class GridEnvironment(gym.Env):
-    def __init__(self, sx=0, sy=0, gx=59, gy=59, ox=None, oy=None, grid_size=60, max_radius=1, num_obs=0.0):
+    def __init__(self, sx=0, sy=0, gx=59, gy=59, ox=None, oy=None, grid_size=60, max_radius=1, num_obs=0.0, training_mode=False):
         super(GridEnvironment, self).__init__()
 
         self.grid_size = grid_size
         self.max_radius = max_radius
+        self.training_mode = training_mode
         
         self.num_obs = num_obs
 
@@ -70,6 +71,31 @@ class GridEnvironment(gym.Env):
         self.gx, self.gy = gx, gy
         self.start_position = (sx, sy)
         self.goal_position = (gx, gy)
+
+        self.obstacle_scenarios = {
+            "no_obstacles": {"ox": [], "oy": []},
+        
+            "wall": {
+                "ox": [5 for _ in range(grid_size - 2)],  # Fixed x-coordinate at 5, spanning y-range
+                "oy": [y for y in range(grid_size - 2)]  # Y-coordinates from 0 to 57
+            },
+
+            "small_maze": {
+                "ox": [7, 7, 7, 4, 5, 6, 3, 2, 1, 0],
+                "oy": [2, 3, 4, 4, 4, 4, 4, 4, 4, 4]
+            },
+
+            "passage": {
+                "ox": [7, 7, 7, 7, 4, 5, 6, 3, 2, 1, 0],
+                "oy": [0, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4]
+            },
+
+            "space": {
+                "ox": [7, 7, 7, 7, 7, 4, 6, 3, 2, 1, 0],
+                "oy": [0, 1, 2, 3, 4, 4, 4, 4, 4, 4, 4]
+            }
+
+        }
 
         # Define obstacle lists
         self.ox = ox if ox is not None else []
@@ -232,7 +258,16 @@ class GridEnvironment(gym.Env):
 
                 self.ox.append(ox)
                 self.oy.append(oy)
+        
+        # Chooses between several environments
+        elif self.training_mode:
+            scenario = random.choice(list(self.obstacle_scenarios.keys()))
+            scenario_data = self.obstacle_scenarios[scenario]
+            self.ox, self.oy = scenario_data["ox"], scenario_data["oy"]
+            print(f"Using training mode: scenario '{scenario}' with {len(self.ox)} obstacles")
 
+
+        # Set obstacles
         self.obstacles = list(zip(self.ox, self.oy))
 
         # Update the grid with obstacles

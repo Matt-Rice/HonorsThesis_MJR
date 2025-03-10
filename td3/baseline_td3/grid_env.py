@@ -182,7 +182,7 @@ class GridEnvironment(gym.Env):
             reward += 100
             print(f"Episode terminated on step {self.step_count}")
 
-        if self.step_count >= 2048:
+        if self.step_count >= 1024:
             truncated = True
             print(f"Truncated on step {self.step_count}")
 
