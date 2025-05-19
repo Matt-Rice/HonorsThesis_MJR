@@ -34,31 +34,35 @@ space_oy = [0, 1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 7]
 # oy = [0, 1, 2, 3, 4, 5, 6, 7]
 
 # # Wall envs
-# wall_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=wall_ox, oy=wall_oy)
+wall_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=wall_ox, oy=wall_oy)
 
-# # Passage envs
-# pass_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=pass_ox, oy=pass_oy)
+# Passage envs
+pass_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=pass_ox, oy=pass_oy)
 
-# # Maze envs
-# maze_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=maze_ox, oy=maze_oy)
+# Maze envs
+maze_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=maze_ox, oy=maze_oy)
 
-# # Space envs
-# space_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=space_ox, oy=space_oy)
+# Space envs
+space_train_env = GridEnvironment(sx=0, sy=0, gx=10-1, gy=10-1, grid_size=10, ox=space_ox, oy=space_oy)
 
 
 # Set up sim params
+# train_envs = [
+#         GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size),
+#         GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.1),
+#         GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.15),
+#         GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.2)
+#         ]
 train_envs = [
-        GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size),
-        GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.1),
-        GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.15),
-        GridEnvironment(sx=0, sy=0, gx=grid_size-1, gy=grid_size-1, grid_size=grid_size, num_obs=0.2)
+        wall_train_env, maze_train_env, pass_train_env, space_train_env
         ]
 
-model = "./models/2/env_3/model_rollout_90.zip"
+model = "./models/more/model_rollout_100.zip"
 
-names = ["none", ".1", ".15", ".2"]
+names = ["wall", "maze", "passage", "space"]
 
-output_dirs = ["./test_runs/2/none/", "./test_runs/2/.1/", "./test_runs/2/.15/", "./test_runs/2/.2/"]
+# output_dirs = ["./test_runs/2/none/", "./test_runs/2/.1/", "./test_runs/2/.15/", "./test_runs/2/.2/"]
+output_dirs = ["./test_runs/wall/", "./test_runs/maze/", "./test_runs/passage/", "./test_runs/space/"]
 
 for dir in output_dirs:
     os.makedirs(dir, exist_ok=True)

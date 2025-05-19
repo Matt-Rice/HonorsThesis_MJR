@@ -1,10 +1,11 @@
 import optuna
 import os
 import numpy as np
-from stable_baselines3 import TD3
+from stable_baselines3 import TD3, PPO
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.noise import NormalActionNoise
 from grid_env import GridEnvironment
+from base_grid_env import BaseGridEnvironment
 
 # Define environment setup for tuning
 def create_env():
@@ -12,36 +13,57 @@ def create_env():
 
 # Define objective function for Optuna
 def objective(trial):
-    """Optimize hyperparameters for TD3 using Optuna."""
+    """Optimize hyperparameters for TD3/PPO using Optuna."""
+    
+    # # Sample hyperparameters
+    # learning_rate = trial.suggest_loguniform("learning_rate", 1e-5, 1e-3)
+    # gamma = trial.suggest_float("gamma", 0.90, 0.9999)
+    # batch_size = trial.suggest_categorical("batch_size", [32, 64, 128, 256])
+    # tau = trial.suggest_float("tau", 0.005, 0.05)  # Target network update rate
+    # policy_delay = trial.suggest_int("policy_delay", 1, 3)  # Policy update frequency
+    # train_freq = trial.suggest_categorical("train_freq", [1, 10, 100])  # Steps before training
+    # learning_starts = trial.suggest_categorical("learning_starts", [1000, 5000, 10000])  # When training starts
+
+    # # Action noise (important for TD3 exploration)
+    # action_noise_std = trial.suggest_float("action_noise_std", 0.1, 0.5)  # Standard deviation of action noise
+    # action_noise = NormalActionNoise(mean=np.zeros(1), sigma=action_noise_std * np.ones(1))
     
     # Sample hyperparameters
     learning_rate = trial.suggest_loguniform("learning_rate", 1e-5, 1e-3)
     gamma = trial.suggest_float("gamma", 0.90, 0.9999)
     batch_size = trial.suggest_categorical("batch_size", [32, 64, 128, 256])
-    tau = trial.suggest_float("tau", 0.005, 0.05)  # Target network update rate
-    policy_delay = trial.suggest_int("policy_delay", 1, 3)  # Policy update frequency
-    train_freq = trial.suggest_categorical("train_freq", [1, 10, 100])  # Steps before training
-    learning_starts = trial.suggest_categorical("learning_starts", [1000, 5000, 10000])  # When training starts
-
-    # Action noise (important for TD3 exploration)
-    action_noise_std = trial.suggest_float("action_noise_std", 0.1, 0.5)  # Standard deviation of action noise
-    action_noise = NormalActionNoise(mean=np.zeros(1), sigma=action_noise_std * np.ones(1))
+    clip_range = trial.suggest_float("clip_range", 0.1, 0.4)
+    n_steps = trial.suggest_categorical("n_steps", [512, 1024, 2048])
+    ent_coef = trial.suggest_loguniform("ent_coef", 1e-8, 0.01)
 
     # Create environment
     env = create_env()
 
     # Define TD3 model with sampled hyperparameters
-    model = TD3(
+    # model = TD3(
+    #     "MlpPolicy",
+    #     env,
+    #     learning_rate=learning_rate,
+    #     gamma=gamma,
+    #     batch_size=batch_size,
+    #     tau=tau,
+    #     policy_delay=policy_delay,
+    #     train_freq=train_freq,
+    #     learning_starts=learning_starts,
+    #     action_noise=action_noise,
+    #     verbose=0
+    # )
+
+     # Define PPO model with sampled hyperparameters
+    model = PPO(
         "MlpPolicy",
         env,
         learning_rate=learning_rate,
         gamma=gamma,
         batch_size=batch_size,
-        tau=tau,
-        policy_delay=policy_delay,
-        train_freq=train_freq,
-        learning_starts=learning_starts,
-        action_noise=action_noise,
+        clip_range=clip_range,
+        n_steps=n_steps,
+        ent_coef=ent_coef,
         verbose=0
     )
 
@@ -55,7 +77,7 @@ def objective(trial):
 
 # Evaluation function
 def evaluate_model(model, env, episodes=5):
-    """Evaluate TD3 model by running test episodes and returning average reward."""
+    """Evaluate TD3 or PPO model by running test episodes and returning average reward."""
     total_rewards = []
     for _ in range(episodes):
         obs = env.reset()
@@ -72,3 +94,6 @@ def evaluate_model(model, env, episodes=5):
 if __name__ == "__main__":
     study = optuna.create_study(direction="maximize")  # Maximize reward
     study.optimize(objective, n_trials=20)  # Run 20
+
+    # Print best hyperparameters
+    print("Best hyperparameters:", study.best_params)

@@ -471,7 +471,7 @@ def train_curriculum(model, train_envs, eval_envs, total_timesteps=100000, save_
         if i == 1:
             print(f"Loading from environment {i-1}")
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
-            model = PPO.load("./models/2/env_0/model_rollout_90.zip", train_env)
+            model = PPO.load("./models/2/env_0/model_rollout_40.zip", train_env)
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
             callback = SaveGifAndLogCallback("./logs/", f"./graphs/2/env_{i}/", f"./models/2/env_{i}/", eval_env, save_freq)
 
@@ -479,7 +479,7 @@ def train_curriculum(model, train_envs, eval_envs, total_timesteps=100000, save_
         elif i == 2:
             print(f"Loading from environment {i-1}")
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
-            model = PPO.load("./models/2/env_1/model_rollout_90.zip", train_env)
+            model = PPO.load("./models/2/env_1/model_rollout_40.zip", train_env)
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
             callback = SaveGifAndLogCallback("./logs/", f"./graphs/2/env_{i}/", f"./models/2/env_{i}/", eval_env, save_freq)
 
@@ -487,7 +487,7 @@ def train_curriculum(model, train_envs, eval_envs, total_timesteps=100000, save_
         elif i == 3:
             print(f"Loading from environment {i-1}")
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
-            model = PPO.load("./models/2/env_2/model_rollout_90.zip", train_env)
+            model = PPO.load("./models/2/env_2/model_rollout_40.zip", train_env)
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
             callback = SaveGifAndLogCallback("./logs/", f"./graphs/2/env_{i}/", f"./models/2/env_{i}/", eval_env, save_freq)
 
@@ -495,7 +495,7 @@ def train_curriculum(model, train_envs, eval_envs, total_timesteps=100000, save_
         elif i == 4:
             print(f"Loading from environment {i-1}")
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
-            model = PPO.load("./models/2/env_3/model_rollout_90.zip", train_env)
+            model = PPO.load("./models/2/env_3/model_rollout_40.zip", train_env)
             print(f"\nTraining on environment {i + 1}/{len(train_envs)}")
             callback = SaveGifAndLogCallback("./logs/", f"./graphs/2/env_{i}/", f"./models/2/env_{i}/", eval_env, save_freq)
 
@@ -603,16 +603,17 @@ if __name__ == "__main__":
     model = PPO(
         "MlpPolicy", 
         train_envs[0], 
-        learning_rate=0.0009465151432244565, 
-        gamma= 0.9256136864027436,
-        clip_range=0.26122827380929725,
-        n_steps=1024,
-        ent_coef= 0.00017341259491965202,
+        learning_rate= 0.0008131941071667732, 
+        gamma= 0.9248560788899046,
+        batch_size=256,
+        clip_range=0.11607545402583988,
+        n_steps=2048,
+        ent_coef= 1.1448678896836585e-05,
         verbose=1, 
         tensorboard_log="./logs/tensorboard"
         )
 
-    #callback = SaveGifAndLogCallback("./logs/", f"./graphs/more/", f"./models/more/", eval_envs[3], args.save_freq)    
-    model = PPO.load("./models/2/env_3/model_rollout_90.zip", env=train_envs[0])
-    #model.learn(total_timesteps=args.total_timesteps, callback=callback)
-    train_curriculum(model, train_envs, eval_envs, args.total_timesteps, args.save_freq)
+    callback = SaveGifAndLogCallback("./logs/", f"./graphs/more/", f"./models/more/", eval_envs[3], args.save_freq)    
+    model = PPO.load("./models/2/env_3/model_rollout_40.zip", env=train_envs[3])
+    model.learn(total_timesteps=args.total_timesteps, callback=callback)
+    #train_curriculum(model, train_envs, eval_envs, args.total_timesteps, args.save_freq)
